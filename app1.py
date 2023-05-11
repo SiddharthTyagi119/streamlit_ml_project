@@ -1,18 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Jun 13 02:20:31 2020
-
-@author: Krish Naik
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Fri May 15 12:50:04 2020
-
-@author: krish.naik
-"""
-
-
 import numpy as np
 import pickle
 import pandas as pd
@@ -21,17 +6,15 @@ import streamlit as st
 
 from PIL import Image
 
-#app=Flask(__name__)
-#Swagger(app)
 
+#load the pickle file of model
 pickle_in = open("classifier.pkl","rb")
 classifier=pickle.load(pickle_in)
 
-#@app.route('/')
+
 def welcome():
     return "Welcome All"
 
-#@app.route('/predict',methods=["Get"])
 def predict_note_authentication(variance,skewness,curtosis,entropy):
     
     """Let's Authenticate the Banks Note 
@@ -73,6 +56,9 @@ def main():
     <h2 style="color:white;text-align:center;">Streamlit Bank Authenticator ML App </h2>
     </div>
     """
+
+    #created text inputs for the features that we need for predictions
+    
     st.markdown(html_temp,unsafe_allow_html=True)
     variance = st.text_input("Variance","Type Here")
     skewness = st.text_input("skewness","Type Here")
